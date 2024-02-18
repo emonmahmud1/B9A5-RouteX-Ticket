@@ -110,17 +110,17 @@ for (const ticket of selectTickets){
 
 //enable coupon code button
 
-        // if(select.length>=4){
-        //     const couponApply = document.getElementById('coupon-apply-Btn');
-        //     couponApply.removeAttribute('disabled');
+        if(select.length>=4){
+            const couponApply = document.getElementById('coupon-apply-Btn');
+            couponApply.removeAttribute('disabled');
           
-        // // const node = event.target.parentNode.parentNode.parentNode
-        // // console.log(node);
+        // const node = event.target.parentNode.parentNode.parentNode
+        // console.log(node);
          
-        // // for(const disable of selectTickets){
-        // //     disable.setAttribute('disabled',true);
-        // // }
+        // for(const disable of selectTickets){
+        //     disable.setAttribute('disabled',true);
         // }
+        }
        
         
         // seat count
@@ -179,10 +179,34 @@ document.getElementById('coupon-apply-Btn').addEventListener('click',function(ev
     else{
         alert('your coupon code is invalid')
     }
+
+
+
   
     
     
 });
+
+// next button function
+// let phoneNumber;
+// document.getElementById('phone-number').addEventListener('keyup', function(event){
+//     phoneNumber=parseInt(event.target.value)
+    
+   
+//     if(typeof phone!==null){
+//         const nextButton = document.getElementById('next-button');
+//         nextButton.removeAttribute('disabled');
+//     }
+//     else{
+//         const nextButton = document.getElementById('next-button');
+//         nextButton.setAttribute('disabled', true);
+//     }
+    
+// });
+
+
+
+
 
 
 
