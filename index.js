@@ -42,10 +42,27 @@ for (const ticket of selectTickets){
             
         }
     }
-  
-    else{
-        alert('limit reached');
+    else if(select.length==4){
+        if (select.includes(indexText)){
+            const index= select.indexOf(indexText);
+            console.log(index);
+            select.splice(index, 1);
+            ticket.style.backgroundColor= '';
+            const tbody = document.getElementById('tbody');
+         
+            tbody.deleteRow(index);
+
+        }
+        else{
+            alert('limit exceeded');
+        }
+            
+          
+            
+        
     }
+  
+   
     
 
 
