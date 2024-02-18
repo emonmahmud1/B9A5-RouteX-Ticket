@@ -7,7 +7,7 @@ for (const ticket of selectTickets){
     ticket.addEventListener('click',function(event){
         countTicket+=1;
         const indexText= event.target.innerText
-        console.log(indexText);
+       
 
         // 
         if(select.length<4){
@@ -41,7 +41,6 @@ for (const ticket of selectTickets){
           
             
         }
-        console.log(select);
     }
   
     else{
@@ -74,7 +73,7 @@ for (const ticket of selectTickets){
 
         
         const totalPrice = select.length * 550;
-        console.log(totalPrice);
+        
         const price =document.getElementById('total-price');
         price.innerText = totalPrice;
 
@@ -118,7 +117,46 @@ for (const ticket of selectTickets){
 
 // coupon code 
 
+document.getElementById('coupon-apply-Btn').addEventListener('click',function(event){
 
+    const coupon1 = document.getElementById('coupon1').innerText;
+    const coupon2 = document.getElementById('coupon2').innerText;
+    const couponText = document.getElementById('coupon-field').value;
+
+    
+    if(coupon1===couponText){
+        const price =document.getElementById('total-price').innerText;
+        const totalPrice = parseInt(price);
+        
+        const discoutPrice = totalPrice*0.15;
+        grandTotalPrice = grandTotalPrice-discoutPrice;
+        const grandPrice = document.getElementById('grand-price');
+
+        grandPrice.innerText = grandTotalPrice;
+        const node =  event.target.parentNode
+        node.classList.add('hidden');
+ 
+
+    }
+    else if(coupon2===couponText){
+        const price =document.getElementById('total-price').innerText;
+        const totalPrice = parseInt(price);
+        const discoutPrice = totalPrice*0.20;
+        grandTotalPrice = grandTotalPrice-discoutPrice;
+        
+        const grandPrice = document.getElementById('grand-price');
+        grandPrice.innerText = grandTotalPrice;
+        const node =  event.target.parentNode
+         node.classList.add('hidden');
+        
+    }
+    else{
+        alert('your coupon code is invalid')
+    }
+  
+    
+    
+});
 
 
 
