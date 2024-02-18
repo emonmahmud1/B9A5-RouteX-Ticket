@@ -189,20 +189,20 @@ document.getElementById('coupon-apply-Btn').addEventListener('click',function(ev
 
 // next button function
 // let phoneNumber;
-// document.getElementById('phone-number').addEventListener('keyup', function(event){
-//     phoneNumber=parseInt(event.target.value)
+document.getElementById('phone-number').addEventListener('keyup', function(event){
+   let phoneNumber=parseInt(event.target.value)
     
    
-//     if(typeof phone!==null){
-//         const nextButton = document.getElementById('next-button');
-//         nextButton.removeAttribute('disabled');
-//     }
-//     else{
-//         const nextButton = document.getElementById('next-button');
-//         nextButton.setAttribute('disabled', true);
-//     }
+    if(typeof phoneNumber ==='number' && select.length !== 0){
+        const nextButton = document.getElementById('next-button');
+        nextButton.removeAttribute('disabled');
+    }
+    else{
+        const nextButton = document.getElementById('next-button');
+        nextButton.setAttribute('disabled', true);
+    }
     
-// });
+});
 
 
 
