@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn bg-[#1dd10026] text-[#1DD100]" ><img src="images/busicon.png" alt=""> <span>40</span> seat left</button>
+                <button class="btn bg-[#1dd10026] text-[#1DD100]" ><img src="images/busicon.png" alt=""> <span id="seat-left">40</span> seat left</button>
             </div>
             <div class="bg-[#F7F8F8] p-8 m-8 mt-6 rounded-3xl">
                 <div class="flex justify-between">
@@ -226,7 +226,7 @@
                       <!-- head -->
                       <thead>
                         <tr>
-                          <th>Seat</th>
+                          <th>Seat <span id="seat-count" class="bg-[#1DD100] p-2 rounded-3xl text-white">0</span></th>
                           <th>Class</th>
                           <th>Price</th>
                         </tr>
@@ -243,7 +243,7 @@
                   </div>
                   <div class="flex relative mt-4">
                     <input id="coupon-field" type="text" placeholder="Type here" class=" input input-bordered w-full max-w-xs p-4" />
-                    <button id="coupon-apply-Btn" disabled="disabled" class="btn bg-[#1DD100] inter font-semibold text-base absolute lg:right-4 right-2 p-3 text-white">Apply</button>
+                    <button id="coupon-apply-Btn" class="btn bg-[#1DD100] inter font-semibold text-base absolute lg:right-4 right-2 p-3 text-white">Apply</button>
                   </div>
                   <div class="mt-5 inter text-base font-medium flex justify-between">
                     <p> Grand Total</p>
