@@ -68,7 +68,7 @@ for (const ticket of selectTickets){
         const grandPrice = document.getElementById('grand-price');
         grandPrice.innerText = grandTotalPrice
 
-        // next button and coupon field enable 
+        //coupon field enable 
         if(select.length>=4){
             const couponField = document.getElementById('coupon-field');
             couponField.removeAttribute('disabled');
@@ -83,10 +83,11 @@ for (const ticket of selectTickets){
           
 
         }
-        // next button disable
-
-        if(select.length === 0) {
-             const nextButton = document.getElementById('next-button');
+        // next button enable disable
+        const nextButton = document.getElementById('next-button');
+        if (nextBtnEnableCondition()) {
+            nextButton.removeAttribute('disabled');
+        } else {
             nextButton.setAttribute('disabled', 'disabled');
         }
        
@@ -102,17 +103,23 @@ for (const ticket of selectTickets){
  
     })
 }
-// next button function
 
-document.getElementById('phone-number').addEventListener('keyup', function(event){
-    const numberValue = parseInt(event.target.value);
-    const numArr = [1,2,3,4,5,6,7,8,9,0];
-    if(numArr.includes(numberValue)){
-        const nextButton = document.getElementById('next-button');
-         nextButton.removeAttribute('disabled');
+
+// next button enable fuction 
+ const phoneNumber= document.getElementById('phone-number');
+ const nextButton = document.getElementById('next-button');
+function nextBtnEnableCondition() {
+
+    return phoneNumber.value !== '' && select.length>0;
+}
+
+phoneNumber.addEventListener('keyup', function() {
+    if (nextBtnEnableCondition()) {
+        nextButton.removeAttribute('disabled');
+    } else {
+        nextButton.setAttribute('disabled', 'disabled');
     }
-
-})
+});
 
 
 // key coupon
