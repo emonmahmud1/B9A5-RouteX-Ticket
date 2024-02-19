@@ -1,15 +1,12 @@
-let countTicket=0;
 let grandTotalPrice=0;
 let select =[];
 const selectTickets= document.getElementsByClassName('ticket');
 
 for (const ticket of selectTickets){
     ticket.addEventListener('click',function(event){
-        countTicket+=1;
+        
         const indexText= event.target.innerText
-       
-
-        // 
+      
         if(select.length<4){
         if (!select.includes(ticket.innerText)){
             select.push(ticket.innerText);
@@ -62,33 +59,6 @@ for (const ticket of selectTickets){
         
     }
   
-   
-    
-
-
-        // end
-        
-        // console.log(ticket.innerText);
-        // ticket.style.backgroundColor = "green";
-        // ticket.setAttribute('disabled',true);
-
-
-        // appent table data
-        // const tbody = document.getElementById('tbody');
-        // const tr =document.createElement('tr');
-        // const td1 = document.createElement('td');
-        // const td2 = document.createElement('td');
-        // const td3 = document.createElement('td');
-        // td1.innerText = ticket.innerText;
-        // td2.innerText = 'business';
-        // td3.innerText = 550;
-        // td3.classList.add('seat-price');
-        // tr.appendChild(td1);
-        // tr.appendChild(td2);
-        // tr.appendChild(td3);
-        // tbody.appendChild(tr);
-
-        
         const totalPrice = select.length * 550;
         
         const price =document.getElementById('total-price');
@@ -97,29 +67,24 @@ for (const ticket of selectTickets){
         grandTotalPrice = select.length *550;
         const grandPrice = document.getElementById('grand-price');
         grandPrice.innerText = grandTotalPrice
-
-        // add total 
-        // let totalPrice = countTicket*550;
-        // console.log(totalPrice);
-        // const price =document.getElementById('total-price');
-        // price.innerText = totalPrice;
-        // // grand total
-        // grandTotalPrice = countTicket*550;
-        // const grandPrice = document.getElementById('grand-price');
-        // grandPrice.innerText = grandTotalPrice
-
 //enable coupon code button
 
-        if(select.length>=4){
-            const couponApply = document.getElementById('coupon-apply-Btn');
-            couponApply.removeAttribute('disabled');
+        // if(select.length>=4){
+        //     const couponApply = document.getElementById('coupon-apply-Btn');
+        //     couponApply.removeAttribute('disabled');
           
-        // const node = event.target.parentNode.parentNode.parentNode
-        // console.log(node);
+        // // const node = event.target.parentNode.parentNode.parentNode
+        // // console.log(node);
          
-        // for(const disable of selectTickets){
-        //     disable.setAttribute('disabled',true);
+        // // for(const disable of selectTickets){
+        // //     disable.setAttribute('disabled',true);
+        // // }
         // }
+
+        // next button enable 
+        if(select.length>0){
+            const nextButton = document.getElementById('next-button');
+            nextButton.removeAttribute('disabled');
         }
        
         
@@ -135,11 +100,29 @@ for (const ticket of selectTickets){
     })
 }
 
-// function totalPrice(){
-//     const totalPrice =document.getElementsByClassName('seat-price');
-//     console.log(totalPrice.innerHtml);
 
-// }
+
+// key kupon
+
+document.getElementById('coupon-field').addEventListener('keyup',function(event){
+    const coupon1 = document.getElementById('coupon1').innerText;
+    const coupon2 = document.getElementById('coupon2').innerText;
+    const couponApply= document.getElementById('coupon-apply-Btn')
+    const textFieldValue = event.target.value
+    console.log(textFieldValue);
+
+    if((coupon1===textFieldValue || coupon2===textFieldValue) && select.length>0){
+        couponApply.removeAttribute('disabled');
+       
+    }
+    
+    else{
+        
+        couponApply.setAttribute('disabled', 'disabled');
+    }
+
+});
+
 
 // coupon code 
 
@@ -179,30 +162,12 @@ document.getElementById('coupon-apply-Btn').addEventListener('click',function(ev
     else{
         alert('your coupon code is invalid')
     }
-
-
-
   
-    
-    
 });
 
-// next button function
-// let phoneNumber;
-document.getElementById('phone-number').addEventListener('keyup', function(event){
-   let phoneNumber=parseInt(event.target.value)
-    
-   
-    if(typeof phoneNumber ==='number' && select.length !== 0){
-        const nextButton = document.getElementById('next-button');
-        nextButton.removeAttribute('disabled');
-    }
-    else{
-        const nextButton = document.getElementById('next-button');
-        nextButton.setAttribute('disabled', true);
-    }
-    
-});
+
+
+
 
 
 
