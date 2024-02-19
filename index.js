@@ -168,19 +168,18 @@ document.getElementById('coupon-apply-Btn').addEventListener('click',function(ev
     }
     else if(coupon2===couponText){
         const discount = document.getElementById('discount');
-        discount.parentNode.parentNode.classList.remove('hidden');
-        discount.parentNode.parentNode.classList.add('flex');
         const price =document.getElementById('total-price').innerText;
         const totalPrice = parseInt(price);
         const discoutPrice = totalPrice*0.20;
         discount.innerText = discoutPrice;
-        grandTotalPrice = grandTotalPrice-discoutPrice;
-        grandTotalPrice = grandTotalPrice-discoutPrice;
-        
+        grandTotalPrice = grandTotalPrice-discoutPrice;        
         const grandPrice = document.getElementById('grand-price');
         grandPrice.innerText = grandTotalPrice;
         const node =  event.target.parentNode
          node.classList.add('hidden');
+         
+        discount.parentNode.parentNode.classList.remove('hidden');
+        discount.parentNode.parentNode.classList.add('flex');
         
     }
     else{
