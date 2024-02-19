@@ -67,24 +67,25 @@ for (const ticket of selectTickets){
         grandTotalPrice = select.length *550;
         const grandPrice = document.getElementById('grand-price');
         grandPrice.innerText = grandTotalPrice
-//enable coupon code button
 
-        // if(select.length>=4){
-        //     const couponApply = document.getElementById('coupon-apply-Btn');
-        //     couponApply.removeAttribute('disabled');
-          
-        // // const node = event.target.parentNode.parentNode.parentNode
-        // // console.log(node);
-         
-        // // for(const disable of selectTickets){
-        // //     disable.setAttribute('disabled',true);
-        // // }
-        // }
-
-        // next button enable 
+        // next button and coupon field enable 
         if(select.length>0){
             const nextButton = document.getElementById('next-button');
             nextButton.removeAttribute('disabled');
+            const couponField = document.getElementById('coupon-field');
+            couponField.removeAttribute('disabled');
+            couponField.removeAttribute('title');
+
+        }
+        else{
+            const nextButton = document.getElementById('next-button');
+            nextButton.setAttribute('disabled', 'disabled');
+            const couponField = document.getElementById('coupon-field');
+            document.getElementById('coupon-apply-Btn').setAttribute('disabled', 'disabled');
+            couponField.setAttribute('disabled', 'disabled');
+            couponField.setAttribute('title','Please select at least one seat to apply the coupon');
+          
+
         }
        
         
@@ -102,7 +103,7 @@ for (const ticket of selectTickets){
 
 
 
-// key kupon
+// key coupon
 
 document.getElementById('coupon-field').addEventListener('keyup',function(event){
     const coupon1 = document.getElementById('coupon1').innerText;
