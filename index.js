@@ -69,23 +69,25 @@ for (const ticket of selectTickets){
         grandPrice.innerText = grandTotalPrice
 
         // next button and coupon field enable 
-        if(select.length>0){
-            const nextButton = document.getElementById('next-button');
-            nextButton.removeAttribute('disabled');
+        if(select.length>=4){
             const couponField = document.getElementById('coupon-field');
             couponField.removeAttribute('disabled');
             couponField.removeAttribute('title');
 
         }
         else{
-            const nextButton = document.getElementById('next-button');
-            nextButton.setAttribute('disabled', 'disabled');
             const couponField = document.getElementById('coupon-field');
             document.getElementById('coupon-apply-Btn').setAttribute('disabled', 'disabled');
             couponField.setAttribute('disabled', 'disabled');
             couponField.setAttribute('title','Please select at least one seat to apply the coupon');
           
 
+        }
+        // next button disable
+
+        if(select.length === 0) {
+             const nextButton = document.getElementById('next-button');
+            nextButton.setAttribute('disabled', 'disabled');
         }
        
         
@@ -100,7 +102,17 @@ for (const ticket of selectTickets){
  
     })
 }
+// next button function
 
+document.getElementById('phone-number').addEventListener('keyup', function(event){
+    const numberValue = parseInt(event.target.value);
+    const numArr = [1,2,3,4,5,6,7,8,9,0];
+    if(numArr.includes(numberValue)){
+        const nextButton = document.getElementById('next-button');
+         nextButton.removeAttribute('disabled');
+    }
+
+})
 
 
 // key coupon
@@ -136,22 +148,33 @@ document.getElementById('coupon-apply-Btn').addEventListener('click',function(ev
     
     if(coupon1===couponText){
         const price =document.getElementById('total-price').innerText;
+        const discount = document.getElementById('discount');
+        
         const totalPrice = parseInt(price);
         
         const discoutPrice = totalPrice*0.15;
+        discount.innerText = discoutPrice;
         grandTotalPrice = grandTotalPrice-discoutPrice;
         const grandPrice = document.getElementById('grand-price');
 
         grandPrice.innerText = grandTotalPrice;
         const node =  event.target.parentNode
         node.classList.add('hidden');
- 
+
+        discount.parentNode.parentNode.classList.remove('hidden');
+        discount.parentNode.parentNode.classList.add('flex');
+    
 
     }
     else if(coupon2===couponText){
+        const discount = document.getElementById('discount');
+        discount.parentNode.parentNode.classList.remove('hidden');
+        discount.parentNode.parentNode.classList.add('flex');
         const price =document.getElementById('total-price').innerText;
         const totalPrice = parseInt(price);
         const discoutPrice = totalPrice*0.20;
+        discount.innerText = discoutPrice;
+        grandTotalPrice = grandTotalPrice-discoutPrice;
         grandTotalPrice = grandTotalPrice-discoutPrice;
         
         const grandPrice = document.getElementById('grand-price');

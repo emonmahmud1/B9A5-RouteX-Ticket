@@ -319,8 +319,12 @@
                     <p>Total Price</p>
                     <p>BDT <span id="total-price">0</span></p>
                   </div>
+                  <div class="mt-5 inter text-base font-medium justify-between hidden">
+                    <p>Discount</p>
+                    <p>- <span id="discount">0</span></p>
+                  </div>
                   <div class="flex relative mt-4">
-                    <input title="Please select at least one seat to apply the coupon" disabled="disabled" id="coupon-field" type="text" placeholder="Have any copupon?" class=" input input-bordered w-full max-w-xs p-4" />
+                    <input title="Please select at least 4 seat to apply the coupon" disabled="disabled" id="coupon-field" type="text" placeholder="Have any copupon?" class=" input input-bordered w-full max-w-xs p-4" />
                     <button disabled="disabled" id="coupon-apply-Btn" class="btn bg-[#1DD100] inter font-semibold text-base absolute right-2 p-3 text-white">Apply</button>
                   </div>
                   <div class="border border-dashed mt-4">
@@ -344,7 +348,7 @@
                     <div class="label">
                       <span class="label-text inter font-semibold text-base">Phone Number*</span>
                     </div>
-                    <input id="phone-number" type="text" placeholder="Enter your phone number" class="input input-bordered w-full max-w-xs" />
+                    <input id="phone-number" type="number" placeholder="Enter your phone number" class="input input-bordered w-full max-w-xs" />
                     
                   </label>
                 <label class="form-control w-full max-w-xs mt-6">
