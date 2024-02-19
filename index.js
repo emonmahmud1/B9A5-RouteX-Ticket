@@ -10,7 +10,7 @@ for (const ticket of selectTickets){
         if(select.length<4){
         if (!select.includes(ticket.innerText)){
             select.push(ticket.innerText);
-            ticket.style.backgroundColor = "green";
+            ticket.style.backgroundColor = "#1DD100";
 
             const tbody = document.getElementById('tbody');
             const tr =document.createElement('tr');
@@ -18,7 +18,7 @@ for (const ticket of selectTickets){
             const td2 = document.createElement('td');
             const td3 = document.createElement('td');
             td1.innerText = ticket.innerText;
-            td2.innerText = 'business';
+            td2.innerText = 'Economoy';
             td3.innerText = 550;
             td3.classList.add('seat-price');
             tr.appendChild(td1);
