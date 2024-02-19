@@ -188,6 +188,12 @@ document.getElementById('coupon-apply-Btn').addEventListener('click',function(ev
   
 });
 
+// modal button click
+
+document.getElementById('btn-modal').addEventListener('click', function() {
+    window.location.reload();
+});
+
 
 
 
